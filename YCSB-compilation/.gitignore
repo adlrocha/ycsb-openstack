@@ -1,0 +1,15 @@
+# ignore compiled byte code
+target
+*.pyc
+
+# ignore output files from testing
+output*
+
+# ignore standard eclipse
+.project
+.classpath
+.settings
+
+# and intellij
+.idea/
+*.iml
