@@ -41,7 +41,7 @@ fi
 
 if [ "$4" = "-target" ];
 then
-    threads=$5
+    target=$5
     echo "Target specified "
 fi
 
