@@ -49,3 +49,7 @@ fi
 ./bin/ycsb load cassandra-cql -P ./workloads/$1
 ./bin/ycsb run cassandra-cql -P ./workloads/$1 -threads $threads -target $target
 
+#install nc and send udp packet to terminate the VM
+sudo yum install -y nc
+echo -n "hello " | nc -4u -w1 10.40.39.2 8888
+
