@@ -1,0 +1,37 @@
+###########################################
+# Automatic Script for OpenStack Test
+# ---By Yuning Hui
+#
+# **See README for detailed configurations
+#
+# Autorun after Virtual Machine Boots
+# 1. Starting Cassandra
+# 2. Using scp with ssh key to download
+#    workload and config files from Frodo
+# 3. Run the test
+###########################################
+
+
+#!/bin/bash
+
+#Cassandra start
+
+sudo /sbin/cassandra > /home/centos/tmp.log
+
+a=`grep "state jump to normal" /home/centos/tmp.log`
+
+while [ "$a" = "" ]
+do
+    a=`grep "state jump to normal" /home/centos/tmp.log`
+done
+
+#Get configuration files from Frodo
+
+scp -i /root/.ssh/id_rsa clientdown@10.40.39.2:~/workload /home/centos/YCSB-compilation/workloads/
+scp -i /root/.ssh/id_rsa clientdown@10.40.39.2:~/startworkload.sh /home/centos
+chmod +x /home/centos/startworkload.sh
+
+#Run start.sh
+/home/centos/startworkload.sh
+
+

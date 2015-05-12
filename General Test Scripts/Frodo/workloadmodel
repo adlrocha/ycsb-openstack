@@ -1,0 +1,13 @@
+recordcount=1000
+operationcount=aaa
+workload=com.yahoo.ycsb.workloads.CoreWorkload
+
+readallfields=true
+
+readproportion=bbb
+updateproportion=ccc
+scanproportion=0
+insertproportion=0
+
+requestdistribution=zipfian
+hosts=127.0.0.1

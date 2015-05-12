@@ -1,0 +1,9 @@
+How to run this script on virtual machines?
+
+1. You need to follow the rules on the main page of the repository.
+2. Copy this script to /home/centos  on the VM.
+3. Set this script run by adding it into rc.local:
+	(1) add "/home/centos/start" to /etc/rc.d/rc.local
+	(2) set execution permissions by "chmod +x /etc/rc.d/rc.local" and "chmod +x /home/centos/start" with root access.
+	(3) enable sudo to run without launching tty, otherwise this will block the script from starting Cassandra. Just edit the file /etc/sudoers, comment "Defaults    requiretty".
+
