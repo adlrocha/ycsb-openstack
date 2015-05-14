@@ -1,2 +1,3 @@
 Start  End   Read  Write  Operations  Threads  Target
-0 1800 0.5 0.5 10000000 50 4500
+0 300 0.5 0.5 10000000 50 4500
+360 660 0.5 0.5 10000000 50 2500
