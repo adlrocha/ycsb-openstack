@@ -11,5 +11,5 @@ Things to do in the VM
 	(2) set execution permissions by "chmod +x /etc/rc.d/rc.local" and "chmod +x /home/centos/start" with root access.
 	(3) enable sudo to run without launching tty, otherwise this will block the script from starting Cassandra. Just edit the file /etc/sudoers, comment "Defaults    requiretty". But this file is read-only. You need to perform "sudo chmod +w /etc/sudoers", edit it, and execute "sudo chmod -w /etc/sudoers" to ensure it is valid again.
 
-4. Save the snapshot if it works.
+4. Save the snapshot if works
 
