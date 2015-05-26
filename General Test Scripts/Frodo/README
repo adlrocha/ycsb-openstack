@@ -20,12 +20,12 @@ Things to Do in Frodo:
 
 2. Make public & private keys:
 	1)Make a new user for the VM to download the config files
-	"mkdir", "passwd", ...
+	"useradd", "passwd", ...
 	2)Switch to the new user and generate new keys:
 	"ssh-keygen" with no passphrase
 	3)Copy the new private key file "id_rsa" to /home/centos/.ssh of the VM and "/home/newusername/.ssh" of Frodo.
 
 3. Set the right permission to the two key files:
 	The two key files on each system should be set to '600' : "chmod 600 /home/centos/.ssh/id_rsa" in the VM and "chmod 600 /home/centos/.ssh/id_rsa.pub" in Frodo.
-	The two .ssh folders should be granted 700 permission. 
+	The two ~/.ssh folders should be granted 700 permission. 
 
