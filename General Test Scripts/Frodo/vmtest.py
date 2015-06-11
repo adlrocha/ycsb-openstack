@@ -39,8 +39,11 @@ def getfreeip():
             return i[2:13]
 
 
-def deletevm(vmid):
+def deletevm(vmid,namecount):
     ret=commands.getoutput("nova delete " + vmid)
+    fout=open('optlog','a')
+    fout.write(time.strftime('%Y-%m-%d %H:%M:%S',time.localtime(time.time())) + "  test" + namecount + " ended." "\n")
+    fout.close()
 
 	
 def startvm(config):
@@ -50,19 +53,16 @@ def startvm(config):
     freeip=getfreeip()
     namecount=namecount+1
 	
-    ret=commands.getoutput("nova boot --flavor 2 --image c75310f8-cadd-49ee-944f-1aa0d3facdf3 --key-name huiyuning --nic net-id=f3327bd6-9658-425e-be09-44c6eb14e603 " + str(namecount))
+    ret=commands.getoutput("nova boot --flavor 2 --image c75310f8-cadd-49ee-944f-1aa0d3facdf3 --key-name huiyuning --nic net-id=f3327bd6-9658-425e-be09-44c6eb14e603 " + "test" +str(namecount))
     m=ret.splitlines()
     vmid=m[20][41:77]
     time.sleep(1)
     commands.getoutput("nova floating-ip-associate " + vmid + " " + freeip)
     print freeip
-    Timer(int(config[1]),deletevm,(vmid,)).start()
-    
-
-def deletevm(vmid):
-    ret=commands.getoutput("nova delete " + vmid)
-
- 
+    fout=open('optlog','a')
+    fout.write(time.strftime('%Y-%m-%d %H:%M:%S',time.localtime(time.time())) + "  test" + str(namecount) + " started." "\n")
+    fout.close()
+    Timer(int(config[1]),deletevm,(vmid,str(namecount),)).start()
 
 fconfig=open('config','r')
 fconfig.readline()
