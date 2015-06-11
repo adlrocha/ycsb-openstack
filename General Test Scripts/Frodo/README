@@ -29,3 +29,6 @@ Things to Do in Frodo:
 	The two key files on each system should be set to '600' : "chmod 600 /home/centos/.ssh/id_rsa" in the VM and "chmod 600 /home/centos/.ssh/id_rsa.pub" in Frodo.
 	The two ~/.ssh folders should be granted 700 permission. 
 
+4. Run 'caluavgutil.py' first to have the overall utilization uploaded to Visualizee. Leave it in 'tmux'.
+
+5. Modify the config file 'config' with your own parameters and run 'vmtest.py' with sudo privilege and source the keystone of Openstack. It will generate a log file 'optlog'. It is better to leave it in 'tmux' so that it keeps runnning even if you disconnect the SSH session.
